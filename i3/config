@@ -15,6 +15,9 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # NetworkManager
 exec_always --no-startup-id nm-applet
 
+# Albert
+#exec_always --no-startup-id albert
+
 # mpd
 #exec_always --no-startup-id mpd
 
@@ -22,7 +25,7 @@ exec_always --no-startup-id nm-applet
 #exec_always compton --config ~/.config/compton.conf
 
 # Rofi
-bindsym $mod+d exec --no-startup-id rofi -theme Arc-Dark -show run
+bindsym $mod+d exec --no-startup-id rofi -show run
 
 # Shutdown
 bindsym $mod+p exec shutdown now
@@ -165,7 +168,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # i3-gaps settings
-#smart_gaps on
+smart_gaps on
 smart_borders on
 gaps inner 5
 gaps outer 10
@@ -199,11 +202,15 @@ exec_always export ANDROID_SDK_HOME=/mnt/DATA/home/nicola
 exec_always export ANDROID_AVD_HOME=/mnt/DATA/home/nicola/.android/avd
 
 # Screenshot bindings
-bindsym --release Print exec "scrot -m '/mnt/DATA/home/nicola/Immagini/screen_%s_%H%M_%d.%m.%Y_$wx$h.png'"
+bindsym --release Print exec "scrot -m '/mnt/DATA/home/nicola/Immagini/screen_%s_%H%M_%d.%m.%Y_$wx$h.png' && notify-send scrot 'Screenshot taken'"
 bindsym --release Shift+Print exec "scrot -s '/mnt/DATA/home/nicola/Immagini/screen_%s_%H%M_%d.%m.%Y_$wx$h.png'"
 
 for_window [class="Xarchiver"] floating enable
 for_window [class="Thunar"] floating enable
 
 # Custom binding
-bindsym $mod+c exec chromium
+bindsym $mod+c exec firefox
+
+# TODO
+#bindsym $mod+t exec "notify-send 'TODO' `cat ~/TODO`"
+bindsym $mod+t exec notify-send "TODO" "$(echo -e "$(cat ~/TODO)")"
