@@ -202,8 +202,8 @@ exec_always export ANDROID_SDK_HOME=/mnt/DATA/home/nicola
 exec_always export ANDROID_AVD_HOME=/mnt/DATA/home/nicola/.android/avd
 
 # Screenshot bindings
-bindsym --release Print exec "scrot -m '/mnt/DATA/home/nicola/Immagini/screen_%s_%H%M_%d.%m.%Y_$wx$h.png' && notify-send scrot 'Screenshot taken'"
-bindsym --release Shift+Print exec "scrot -s '/mnt/DATA/home/nicola/Immagini/screen_%s_%H%M_%d.%m.%Y_$wx$h.png'"
+bindsym --release Print exec "scrot -m '/mnt/DATA/home/nicola/Immagini/screenshots/screen_%s_%H%M_%d.%m.%Y_$wx$h.png' && notify-send scrot 'Screenshot taken'"
+bindsym --release Shift+Print exec "scrot -s '/mnt/DATA/home/nicola/Immagini/screenshots/screen_%s_%H%M_%d.%m.%Y_$wx$h.png'"
 
 for_window [class="Xarchiver"] floating enable
 for_window [class="Thunar"] floating enable
